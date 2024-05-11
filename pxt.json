@@ -1,0 +1,35 @@
+{
+    "name": "hannah get out of the box",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "servo": "*",
+        "pxt-kitronik-servo-lite": "github:kitronikltd/pxt-kitronik-servo-lite#v1.0.9",
+        "pxt-kitronik-simple-servo": "github:kitronikltd/pxt-kitronik-simple-servo#v0.0.7",
+        "pxt-sonar": "github:microsoft/pxt-sonar#v0.0.5",
+        "datalogger": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v6.0.27",
+        "tag": "v6.0.27",
+        "commits": "https://github.com/microsoft/pxt-microbit/commits/2c4654e7d5e6a85f8bbc1c2d48467b7665ccf95f",
+        "target": "6.0.27",
+        "pxt": "9.0.19",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
