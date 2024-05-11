@@ -1,10 +1,10 @@
 def on_button_pressed_a():
     kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO1,
         kitronik_simple_servo.ServoDirection.CW,
-        50)
+        100)
     kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO2,
         kitronik_simple_servo.ServoDirection.CCW,
-        50)
+        100)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_ab():
@@ -31,12 +31,11 @@ datalogger.set_column_titles("Distance")
 def on_forever():
     global sonar2
     if sonar_switch == 1:
+        basic.pause(200)
         while True:
-            kitronik_simple_servo.servo_stop(kitronik_simple_servo.ServoChoice.SERVO1)
-            kitronik_simple_servo.servo_stop(kitronik_simple_servo.ServoChoice.SERVO2)
-            basic.pause(3000)
-            sonar2 = sonar.ping(DigitalPin.P2, DigitalPin.P0, PingUnit.CENTIMETERS)
-            if sonar2 > 60:
+            sonar2 = sonar.ping(DigitalPin.P1, DigitalPin.P2, PingUnit.CENTIMETERS)
+            basic.pause(500)
+            if sonar2 > 6:
                 break
             kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO1,
                 kitronik_simple_servo.ServoDirection.CW,
@@ -44,13 +43,14 @@ def on_forever():
             kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO2,
                 kitronik_simple_servo.ServoDirection.CW,
                 100)
-            basic.pause(500)
+            basic.pause(200)
+        # One clockwise, one counter to go straight in current HW setup
         kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO1,
             kitronik_simple_servo.ServoDirection.CW,
-            100)
+            50)
         kitronik_simple_servo.servo_run_percentage(kitronik_simple_servo.ServoChoice.SERVO2,
             kitronik_simple_servo.ServoDirection.CCW,
-            100)
+            50)
 basic.forever(on_forever)
 
 def on_every_interval():

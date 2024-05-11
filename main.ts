@@ -22,20 +22,20 @@ basic.showIcon(IconNames.Heart)
 datalogger.setColumnTitles("Distance")
 basic.forever(function () {
     if (sonar_switch == 1) {
-        basic.pause(200)
+        basic.pause(100)
         while (true) {
             sonar2 = sonar.ping(
             DigitalPin.P1,
             DigitalPin.P2,
             PingUnit.Centimeters
             )
-            basic.pause(500)
-            if (sonar2 > 6) {
+            basic.pause(100)
+            if (sonar2 > 60) {
                 break;
             }
-            kitronik_simple_servo.servoRunPercentage(kitronik_simple_servo.ServoChoice.servo1, kitronik_simple_servo.ServoDirection.CW, 100)
-            kitronik_simple_servo.servoRunPercentage(kitronik_simple_servo.ServoChoice.servo2, kitronik_simple_servo.ServoDirection.CW, 100)
-            basic.pause(200)
+            kitronik_simple_servo.servoRunPercentage(kitronik_simple_servo.ServoChoice.servo1, kitronik_simple_servo.ServoDirection.CW, 50)
+            kitronik_simple_servo.servoRunPercentage(kitronik_simple_servo.ServoChoice.servo2, kitronik_simple_servo.ServoDirection.CW, 50)
+            basic.pause(100)
         }
         // One clockwise, one counter to go straight in current HW setup
         kitronik_simple_servo.servoRunPercentage(kitronik_simple_servo.ServoChoice.servo1, kitronik_simple_servo.ServoDirection.CW, 50)
